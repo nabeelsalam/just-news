@@ -1,0 +1,17 @@
+body{
+    user-select: none;
+}
+.card{
+    margin: 10px;
+}
+a{
+    color:black;
+}
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+#ProviderList{
+    float: right;
+    font-size: 12px;
+}
