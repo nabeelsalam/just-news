@@ -1,0 +1,18 @@
+{
+    "status": "ok",
+    "totalResults": 1,
+    "articles": [
+        {
+            "source": {
+                "id": "",
+                "name": ""
+            },
+            "author": "",
+            "title": "Could not get the news for you",
+            "description": "Your networks gone to sleep. Try again when its awake",
+            "url": "",
+            "urlToImage": "./offline.jpg",
+            "publishedAt": ""
+        }
+    ]
+}
