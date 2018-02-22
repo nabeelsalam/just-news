@@ -9,7 +9,7 @@
             },
             "author": "",
             "title": "Could not get the news for you",
-            "description": "Your networks gone to sleep. Try again when its awake",
+            "description": "Your network has gone to sleep. Try again when its awake",
             "url": "",
             "urlToImage": "./offline.jpg",
             "publishedAt": ""

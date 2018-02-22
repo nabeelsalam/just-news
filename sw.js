@@ -10,6 +10,7 @@ const staticAssets = [
 
 const staticCacheName = 'just-news-static';
 const dynamicCacheName = 'just-news-dynamic';
+const newsApiCacheName = 'news-api-cache';
 
 self.addEventListener('install', async e => {
   const cache = await caches.open(staticCacheName);
@@ -37,7 +38,13 @@ async function cacheFirst(req) {
 }
 
 async function networkFirst(req) {
-  const cache = await caches.open(dynamicCacheName);
+  let cache;
+  if (req.url.includes('newsapi')) {
+    cache = await caches.open(newsApiCacheName);
+  } else {
+    cache = await caches.open(dynamicCacheName);
+  }
+
   try {
     let res = await fetch(req);
     cache.put(req, res.clone());
