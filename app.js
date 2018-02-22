@@ -1,10 +1,12 @@
 const main = document.getElementById('MainContainer');
 const sourcesList = document.getElementById('SourcesList');
 const APIKEY = '566b3b9b5aa142baab77da3c31a35102';
-let source = 'abc-news';
+const loader = document.getElementById('Loader');
+let source = 'bbc-news';
 
 
 window.addEventListener('load', async e => {
+
   let defaultSource = localStorage.selectedSource ? localStorage.selectedSource : source;
 
   let sources = await fetch('https://newsapi.org/v2/sources?apiKey=566b3b9b5aa142baab77da3c31a35102');
@@ -30,12 +32,13 @@ function createSourceItem({id, name}) {
 }
 
 async function createNewsList(source) {
+  showLoader();
   let res = await fetch(`https://newsapi.org/v2/top-headlines?sources=${source}&apiKey=${APIKEY}`);
   let {articles} = await res.json();
   main.innerHTML = articles
     .map(createCard)
     .join('\n');
-
+  hideLoader();
 }
 
 function createCard({title, description, urlToImage, url}) {
@@ -50,4 +53,11 @@ function createCard({title, description, urlToImage, url}) {
 </div>
 </a>
 `
+}
+
+function showLoader() {
+  loader.style.display = "inline-block";
+}
+function hideLoader() {
+  loader.style.display = "none";
 }
