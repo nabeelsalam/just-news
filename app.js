@@ -23,7 +23,7 @@ window.addEventListener('load', async e => {
     sourcesList.value = defaultSource;
     createNewsList(defaultSource);
   } catch (error) {
-    console.log('Could not load from cache', error)
+    //console.log('Could not load from cache', error)
   }
 
   /**
