@@ -39,14 +39,15 @@ async function cacheFirst(req) {
 
 async function networkFirst(req) {
   let cache;
-  if (req.url.includes('newsapi')) {
-    cache = await caches.open(newsApiCacheName);
-  } else {
-    cache = await caches.open(dynamicCacheName);
-  }
+
 
   try {
     let res = await fetch(req);
+    if (req.url.includes('newsapi')) {
+      cache = await caches.open(newsApiCacheName);
+    } else {
+      cache = await caches.open(dynamicCacheName);
+    }
     cache.put(req, res.clone());
     return res;
   } catch (err) {
