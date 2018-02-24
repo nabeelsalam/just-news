@@ -2,9 +2,6 @@ body{
     user-select: none;
     min-width: 350px;
 }
-.card{
-    margin: 10px;
-}
 a{
     color:black;
 }
