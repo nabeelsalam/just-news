@@ -103,7 +103,7 @@ async function createNewsList(source) {
  *  Creating the news card
  */
 function createCard({title, description, urlToImage, url}) {
-  url = url.replace('http', 'https');
+  url = url.replace('http:/', 'https:/');
   return `
   <a
   data-fancybox
