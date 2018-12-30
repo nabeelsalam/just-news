@@ -104,16 +104,21 @@ async function createNewsList(source) {
  */
 function createCard({title, description, urlToImage, url}) {
   return `
-  <a target="_blank" href="${url}">
+  <a
+  data-fancybox
+  data-type="iframe"
+  data-src="${url}"
+  href="javascript:;"
+  >
   <div class="card ml-0">
   <img class="card-img-top" src="${urlToImage}" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">${title}</h5>
     <p class="card-text">${description}</p>
   </div>
-</div>
-</a>
-`
+  </div>
+  </a>
+  `
 }
 
 /**
