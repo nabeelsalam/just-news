@@ -43,7 +43,7 @@ async function networkFirst(req) {
 
   try {
     let res = await fetch(req);
-    if (req.url.includes('newsapi')) {
+    if (req.url.includes('mediastack')) {
       cache = await caches.open(newsApiCacheName);
     } else {
       cache = await caches.open(dynamicCacheName);
@@ -55,7 +55,7 @@ async function networkFirst(req) {
     if (res) {
       return res;
     } else {
-      if (req.url.includes('headlines')) {
+      if (req.url.includes('news')) {
         let res = await caches.match('./offline.json');
         return res;
       }
