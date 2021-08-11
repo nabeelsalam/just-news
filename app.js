@@ -1,8 +1,8 @@
 const main = document.getElementById('MainContainer');
 const sourcesList = document.getElementById('SourcesList');
-const APIKEY = '1b508e143434aa2af4b2830cb4c844ca';
+const APIKEY = 'pub_801479d5884849c81e5474e0ff602d70e91';
 const loader = document.getElementById('Loader');
-const sourcesURL = 'https://api.mediastack.com/v1/sources?apiKey=1b508e143434aa2af4b2830cb4c844ca'
+const sourcesURL = 'https://newsdata.io/api/1/sources?apikey=pub_801479d5884849c81e5474e0ff602d70e91'
 let source = 'bbc-news';
 
 /**
@@ -80,7 +80,7 @@ function createSourceItem({id, name}) {
  */
 async function createNewsList(source) {
   showLoader();
-  const fetchURL = `http://api.mediastack.com/v1/news?sources=${source}&apiKey=${APIKEY}`;
+  const fetchURL = `https://newsdata.io/api/1/news?domain=${source}&apikey=${APIKEY}`;
   try {
     let cachedResponse = await caches.match(fetchURL);
     let {articles} = await cachedResponse.json();
