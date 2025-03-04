@@ -32,7 +32,7 @@ window.addEventListener('load', async e => {
   let sources = await fetch(sourcesURL);
   let json = await sources.json();
 
-  createSourcesList(json.sources);
+  createSourcesList(json.results);
   sourcesList.value = defaultSource;
 
   /**
