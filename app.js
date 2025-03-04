@@ -19,7 +19,7 @@ window.addEventListener('load', async e => {
     let cachedSourcesResponse = await caches.match(sourcesURL);
     let json = await cachedSourcesResponse.json();
 
-    createSourcesList(json.sources);
+    createSourcesList(json.results);
     sourcesList.value = defaultSource;
     createNewsList(defaultSource);
   } catch (error) {
